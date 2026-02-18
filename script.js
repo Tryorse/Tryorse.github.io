@@ -42,6 +42,7 @@ function toggleSensorDataGrab() {
 }
 
 function requestPermission() {
+  alert("requesting permission");
   if (typeof DeviceMotionEvent !== "undefined" &&
       typeof DeviceMotionEvent.requestPermission === "function") {
 
