@@ -1,14 +1,6 @@
 let lastUpdate = Date.now();
 let counter = 0;
 
-function startListening() {
-  window.addEventListener("devicemotion", accelerometerDataRetrieved);
-}
-
-function stopListening() {
-  window.removeEventListener("devicemotion", accelerometerDataRetrieved);
-}
-
 //this will be run every time the accelerometer updates and causes the "devicemotion" event to fire 
 function accelerometerDataRetrieved(event) {
     if (event.accelerationIncludingGravity) {
@@ -27,6 +19,14 @@ function accelerometerDataRetrieved(event) {
         lastUpdate = now;
       }
     }
+}
+
+function startListening() {
+  window.addEventListener("devicemotion", accelerometerDataRetrieved);
+}
+
+function stopListening() {
+  window.removeEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
 function requestPermission() {
