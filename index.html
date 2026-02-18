@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Accelerometer Reader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #111;
+      color: #00ffcc;
+      padding: 20px;
+    }
+    .value {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background: #00ffcc;
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Accelerometer Data</h1>
+
+  <div class="value">X: <span id="x">0</span></div>
+  <div class="value">Y: <span id="y">0</span></div>
+  <div class="value">Z: <span id="z">0</span></div>
+  <div class="value">Update Rate: <span id="rate">0</span> Hz</div>
+
+  <button id="enableBtn">Enable Accelerometer</button>
+
+  <!-- Link external JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
