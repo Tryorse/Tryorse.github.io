@@ -60,4 +60,4 @@ function requestPermission() {
 
 //this makes it so that the button can be clicked to start listening
 document.getElementById("enableBtn")
-        .addEventListener("click", requestPermission);
+        .addEventListener("click", toggleSensorDataGrab);
