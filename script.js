@@ -1,6 +1,6 @@
 let lastUpdate = Date.now();
 let counter = 0;
-let active = true;
+let active = false;
 
 //this will be run every time the accelerometer updates and causes the "devicemotion" event to fire 
 function accelerometerDataRetrieved(event) {
@@ -33,6 +33,8 @@ function stopListening() {
 function toggleSensorDataGrab() {
   if (active) {
     stopListening();
+    document.getElementById("toggleButton").textContent = "Enable Accelerometer";
+    active = false;
   }
   else {
     requestPermission();
@@ -47,6 +49,8 @@ function requestPermission() {
       .then(response => {
         if (response === "granted") {
           startListening();
+          document.getElementById("toggleButton").textContent = "Disable Accelerometer";
+          active = true;
         } else {
           alert("Permission denied.");
         }
@@ -55,9 +59,12 @@ function requestPermission() {
 
   } else {
     startListening();
+    document.getElementById("toggleButton").textContent = "Disable Accelerometer";
+    active = true;
   }
 }
 
-//this makes it so that the button can be clicked to start listening
-document.getElementById("enableBtn")
-        .addEventListener("click", toggleSensorDataGrab);
+//this makes it so that the button can be clicked to start listening. It does so by making a listener that waits for the DOM to load so that it can properly grab the toggle button
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("toggleButton").addEventListener("click", toggleSensorDataGrab);
+});
