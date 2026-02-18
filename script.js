@@ -64,9 +64,9 @@ function requestPermission() {
   }
 }
 
-//this makes it so that the button can be clicked to start listening
-document.getElementById("toggleButton")
-        .addEventListener("click", toggleSensorDataGrab);
+// //this makes it so that the button can be clicked to start listening
+// document.getElementById("toggleButton")
+//         .addEventListener("click", toggleSensorDataGrab);
 
         /*
         let lastUpdate = Date.now();
