@@ -2,11 +2,11 @@ let lastUpdate = Date.now();
 let counter = 0;
 
 function startListening() {
-  window.addEventListener("devicemotion", accelerometerDataRetrieved());
+  window.addEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
 function stopListening() {
-  window.removeEventListener("devicemotion", accelerometerDataRetrieved());
+  window.removeEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
 //this will be run every time the accelerometer updates and causes the "devicemotion" event to fire 
