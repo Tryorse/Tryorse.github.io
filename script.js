@@ -1,5 +1,6 @@
 let lastUpdate = Date.now();
 let counter = 0;
+let active = true;
 
 //this will be run every time the accelerometer updates and causes the "devicemotion" event to fire 
 function accelerometerDataRetrieved(event) {
@@ -29,6 +30,15 @@ function stopListening() {
   window.removeEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
+function toggleSensorDataGrab() {
+  if (active) {
+    stopListening();
+  }
+  else {
+    requestPermission();
+  }
+}
+
 function requestPermission() {
   if (typeof DeviceMotionEvent !== "undefined" &&
       typeof DeviceMotionEvent.requestPermission === "function") {
@@ -48,5 +58,6 @@ function requestPermission() {
   }
 }
 
+//this makes it so that the button can be clicked to start listening
 document.getElementById("enableBtn")
         .addEventListener("click", requestPermission);
