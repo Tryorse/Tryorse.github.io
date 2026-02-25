@@ -36,6 +36,7 @@ function stopListening(sensorEvent, callbackFunction) {
 }
 
 function toggleSensorDataGrab() {
+  //NOTE: these are just here to make it easier to change up values
   sensorEvent = sensorEvents[0];
   callbackFunction = accelerometerDataRetrieved;
 
