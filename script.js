@@ -2,6 +2,9 @@ let lastUpdate = Date.now();
 let counter = 0;
 let active = false;
 
+//put the names of the sensor events to listen for here
+const sensorEvents = [ "deviceMotion" ];
+
 //this will be run every time the accelerometer updates and causes the "devicemotion" event to fire 
 function accelerometerDataRetrieved(event) {
     if (event.accelerationIncludingGravity) {
@@ -22,33 +25,38 @@ function accelerometerDataRetrieved(event) {
     }
 }
 
-function startListening() {
-  window.addEventListener("devicemotion", accelerometerDataRetrieved);
+function startListening(sensorEvent, callbackFunction) {
+  window.addEventListener(sensorEvent, callbackFunction);
+  // window.addEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
-function stopListening() {
-  window.removeEventListener("devicemotion", accelerometerDataRetrieved);
+function stopListening(sensorEvent, callbackFunction) {
+  window.removeEventListener(sensorEvent, callbackFunction);
+  // window.removeEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
 function toggleSensorDataGrab() {
+  sensorEvent = sensorEvents[0];
+  callbackFunction = accelerometerDataRetrieved;
+
   if (active) {
-    stopListening();
+    stopListening(sensorEvent, callbackFunction);
     document.getElementById("toggleButton").textContent = "Enable Accelerometer";
     active = false;
   }
   else {
-    requestPermission();
+    requestPermission(sensorEvent, callbackFunction);
   }
 }
 
-function requestPermission() {
+function requestPermission(sensorEvent, callbackFunction) {
   if (typeof DeviceMotionEvent !== "undefined" &&
       typeof DeviceMotionEvent.requestPermission === "function") {
 
     DeviceMotionEvent.requestPermission()
       .then(response => {
         if (response === "granted") {
-          startListening();
+          startListening(sensorEvent, callbackFunction);
           document.getElementById("toggleButton").textContent = "Disable Accelerometer";
           active = true;
         } else {
@@ -58,7 +66,7 @@ function requestPermission() {
       .catch(console.error);
 
   } else {
-    startListening();
+    startListening(sensorEvent, callbackFunction);
     document.getElementById("toggleButton").textContent = "Disable Accelerometer";
     active = true;
   }
