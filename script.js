@@ -7,7 +7,7 @@ const sensorEvents = [ "devicemotion" ];
 
 //The below are the sensor to grab data from and the function to be triggered when it happens
 const sensorEvent = sensorEvents[0];
-const callbackFunction = accelerometerDataRetrieved;
+const callbackFunction = () => accelerometerDataRetrieved();
 
 //this will be run every time the accelerometer updates and causes the "devicemotion" event to fire 
 function accelerometerDataRetrieved(event) {
