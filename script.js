@@ -78,6 +78,10 @@ function requestPermission(sensorEvent, callbackFunction) {
   }
 }
 
+function test() {
+  
+}
+
 //NOTE: the below functions but breaks the site. If the listener is not loaded such that it is done at the bottom of the HTML file, then it will fail. Making it wait for the DOM to load apparently messes with that. Instead it is better t odo onClick=functionName() in the HTML file
 // //this makes it so that the button can be clicked to start listening. It does so by making a listener that waits for the DOM to load so that it can properly grab the toggle button
 // window.addEventListener("DOMContentLoaded", () => {
