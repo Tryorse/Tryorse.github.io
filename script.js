@@ -78,8 +78,8 @@ function requestPermission(sensorEvent, callbackFunction) {
   }
 }
 
-function test() {
-  
+function addition(x, y) {
+  return x + y;
 }
 
 //NOTE: the below functions but breaks the site. If the listener is not loaded such that it is done at the bottom of the HTML file, then it will fail. Making it wait for the DOM to load apparently messes with that. Instead it is better t odo onClick=functionName() in the HTML file
