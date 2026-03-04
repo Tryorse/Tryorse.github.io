@@ -30,8 +30,8 @@ function accelerometerDataRetrieved(event) {
 }
 
 function startListening(sensorEvent, callbackFunction) {
-  // window.addEventListener(sensorEvent, callbackFunction);
-  window.addEventListener("devicemotion", accelerometerDataRetrieved);
+  window.addEventListener(sensorEvent, callbackFunction);
+  // window.addEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
 function stopListening(sensorEvent, callbackFunction) {
@@ -42,7 +42,7 @@ function stopListening(sensorEvent, callbackFunction) {
 function toggleSensorDataGrab() {
   //NOTE: these are just here to make it easier to change up values
   sensorEvent = sensorEvents[0];
-  callbackFunction = accelerometerDataRetrieved;
+  callbackFunction = () => accelerometerDataRetrieved();
 
   if (active) {
     stopListening(sensorEvent, callbackFunction);
