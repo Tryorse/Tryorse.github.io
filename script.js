@@ -30,8 +30,8 @@ function accelerometerDataRetrieved(event) {
 }
 
 function startListening(sensorEvent, callbackFunction) {
-  window.addEventListener(sensorEvent, accelerometerDataRetrieved);//callbackFunction);
-  // window.addEventListener("devicemotion", accelerometerDataRetrieved);
+  // window.addEventListener(sensorEvent, callbackFunction);
+  window.addEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
 function stopListening(sensorEvent, callbackFunction) {
