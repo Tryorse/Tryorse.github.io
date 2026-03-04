@@ -10,6 +10,7 @@ function accelerometerDataRetrieved(event) {
     if (event.accelerationIncludingGravity) {
       const acc = event.accelerationIncludingGravity;//grab the acceleartion
 
+      console.log("fwjfefwjfewfjwfp");
       if (acc == null)//if there is no data
         return;//end the function early
 
@@ -29,7 +30,7 @@ function accelerometerDataRetrieved(event) {
 }
 
 function startListening(sensorEvent, callbackFunction) {
-  window.addEventListener(sensorEvent, callbackFunction);
+  window.addEventListener(sensorEvent, accelerometerDataRetrieved);//callbackFunction);
   // window.addEventListener("devicemotion", accelerometerDataRetrieved);
 }
 
