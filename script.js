@@ -3,7 +3,7 @@ let counter = 0;
 let active = false;
 
 //put the names of the sensor events to listen for here
-const sensorEvents = [ "deviceMotion" ];
+const sensorEvents = [ "devicemotion" ];
 
 //The below are the sensor to grab data from and the function to be triggered when it happens
 const sensorEvent = sensorEvents[0];
