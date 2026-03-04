@@ -14,7 +14,7 @@ function accelerometerDataRetrieved(event) {
     if (event.accelerationIncludingGravity) {
       const acc = event.accelerationIncludingGravity;//grab the acceleartion
 
-      // console.log("fwjfefwjfewfjwfp");
+      console.log("fwjfefwjfewfjwfp");
       if (acc == null)//if there is no data
         return;//end the function early
 
