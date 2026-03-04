@@ -10,6 +10,9 @@ function accelerometerDataRetrieved(event) {
     if (event.accelerationIncludingGravity) {
       const acc = event.accelerationIncludingGravity;//grab the acceleartion
 
+      if (acc == null)//if there is no data
+        return;//end the function early
+
       document.getElementById("x").textContent = acc.x.toFixed(2);
       document.getElementById("y").textContent = acc.y.toFixed(2);
       document.getElementById("z").textContent = acc.z.toFixed(2);
